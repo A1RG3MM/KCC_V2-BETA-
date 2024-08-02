@@ -1,0 +1,35 @@
+<div class="home">
+    <div class="home-content">
+        <h2>
+            Kitty Cat Club
+        </h2>
+        <form id="uv-form">
+            <input id="uv-form-input">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="home-row-btns">
+            <button class="home-row-btn">
+                
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let sentences = [
+            "Search or type a URL...",
+            "discord.gg/kittycatclub",
+            "A1RG3MM was here :eyespoppingout:",
+            "KCC on top!",
+            "4 developers, 1 proxy.",
+            "AI coming soon...",
+            "hello there",
+            "skibidi skibidi",
+        ];
+        let placeholder = document.getElementById("uv-form-input");
+        let index = Math.floor(Math.random() * sentences.length);
+        placeholder.placeholder = sentences[index];
+    });
+</script>
+<!--look in index.ejs-->

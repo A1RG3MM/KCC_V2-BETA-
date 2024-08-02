@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/nav-bar.css">
+
+    <script src="baremux/index.js" defer></script>
+    <script src="epoxy/index.js" defer></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="./js/register-sw.js" defer></script>
+    <script src="./js/search.js" defer></script>
+    <script src="./js/proxy-backend.js" defer></script>
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+
+    <%- include("partials/navigation-bar") %>
+        <div class="sections">
+            <%- include("partials/home-section") %>
+            <%- include("partials/game-section") %>
+            <%- include("partials/apps-section") %>
+            <%- include("partials/settings-section") %>
+        </div>
+</body>
+
+</html>
+
+<!--<form id="uv-form" class="flex-center">
+        <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+        <input id="uv-address" type="text" placeholder="Search the web freely" />
+    </form>-->

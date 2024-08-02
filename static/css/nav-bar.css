@@ -1,0 +1,156 @@
+nav {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    width: 25vw;
+    background-color: #101010ae;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    overflow-y: auto;
+    transition: 0.25s ease;
+}
+
+.nav-bar {
+    border: 2px solid #1c1c1c;
+}
+
+.nav-bar img {
+    width: 3em;
+    margin-left: 10px;
+    margin-right: -12.5px;
+    border-radius: 2.5px;
+}
+
+.holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin-left: 25vw;
+    opacity: 0;
+}
+
+.barrier {
+    width: 25vw;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    overflow-y: auto;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.nav-top {
+    display: flex;
+    flex-direction: column;
+}
+
+nav h1 {
+    margin-left: 25px;
+    font-size: 1.75em;
+    margin-bottom: 20px;
+}
+
+.nav-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-btn {
+    border-radius: 5px;
+    background-color: #101010ae;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px;
+    border: 2px solid #070707ae;
+    transition: 0.25s ease;
+    color: #FFF;
+}
+
+.nav-btn:hover {
+    background-color: #1f1f1f;
+    border: 2px solid #252525;
+    cursor: pointer;
+}
+
+.nav-btn:active {
+    background-color: #FFF;
+    border: 2px solid #FFF;
+    color: #000;
+}
+
+.nav-btn p {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.nav-btn .fa-solid {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.nav-btn svg {
+    margin-left: 3px;
+    margin-right: 5px;
+}
+
+.widget {
+    background-color: #323232;
+    text-align: center;
+    margin-top: auto;
+    width: 10em;
+    max-height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.widget:nth-child(1) {
+    margin-left: 5px;
+    margin-right: auto;
+}
+
+.widget:nth-child(2) {
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.short-title {
+    display: none;
+}
+
+.nav-container {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+#hide-nav-bar-btn {
+    position: fixed;
+    bottom: 10.1px;
+    left: 25vw;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #101010ae;
+    border-radius: 7.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35px;
+    opacity: 0;
+}
+
+#hide-nav-bar-btn:hover {
+    background-color: #373737ae;
+}
