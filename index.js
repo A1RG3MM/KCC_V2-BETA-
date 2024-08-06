@@ -1,11 +1,11 @@
 import express from "express";
 import http from "node:http";
+import path from "node:path";
+import wisp from "wisp-server-node";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
-import path from "node:path";
 import { hostname } from "node:os";
-import wisp from "wisp-server-node";
 
 const app = express();
 const __dirname = process.cwd();
@@ -15,6 +15,12 @@ app.set("view engine", "ejs");
 app.use("/uv/", express.static(uvPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/baremux/", express.static(baremuxPath));
+
+app.use("/uv.bundle.js", express.static(path.join(uvPath, "uv.bundle.js")));
+app.use("/uv.client.js", express.static(path.join(uvPath, "uv.client.js")));
+app.use("/uv.handler.js", express.static(path.join(uvPath, "uv.handler.js")));
+app.use("/uv.config.js", express.static(path.join(uvPath, "uv.config.js")));
+app.use("/uv.sw.js", express.static(path.join(uvPath, "uv.sw.js")));
 
 app.get("/", (req, res) => {
     res.render(path.join(__dirname, "files", "index.ejs"));
@@ -41,7 +47,7 @@ server.on("upgrade", (req, socket, head) => {
 
 let port = parseInt(process.env.PORT || "");
 
-if (isNaN(port)) port = 8080;
+if (isNaN(port)) port = 3000;
 
 server.on("listening", () => {
     const address = server.address();
@@ -54,16 +60,12 @@ server.on("listening", () => {
     );
 });
 
-// https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
-process.on("SIGINT", shutdown);
-process.on("SIGTERM", shutdown);
 
-function shutdown() {
-    console.log("SIGTERM signal received: closing HTTP server");
+function shutdown(reason) {
+    if (!reason) reason = "Unknown reason"
+    console.warn("Closing HTTP server: " + reason);
     server.close();
     process.exit(0);
 }
 
-server.listen({
-    port,
-});
+server.listen({port});

@@ -26,16 +26,18 @@ form.addEventListener("submit", async (e) => {
 	e.preventDefault();
 	try {
 		await registerSW();
+		const url = search(input.value, searchEngine);
+
+		let wisp = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+		if (await connection.getTransport() !== "/epoxy/index.mjs") {
+			await connection.setTransport("/epoxy/index.mjs", [{ wisp: wisp }]);
+		}
+
+		window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
 	} catch (err) {
 		alert("There has been an error while registering the ServiceWorker. (Check console for more information.)")
 		console.error(err)
 	}
-
-	const url = search(input.value, searchEngine);
-
-	let wisp = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-	if (await connection.getTransport() !== "/epoxy/index.mjs") {
-		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wisp }]);
-	}
-	window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+	//document.getElementById("results").src = __uv$config.prefix + __uv$config.encodeUrl(url);
+	//document.getElementById("results").style.visibility = "visible";
 });
